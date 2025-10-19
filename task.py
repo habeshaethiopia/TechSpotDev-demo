@@ -155,220 +155,167 @@ st.markdown(
 
 # ----------date presentation-------
 
-with st.container():
+col1, col3, col2 = st.columns([2, 3, 2])
+with col1:
+    # Working search functionality with Font Awesome icon
 
-
-    col1, col3, col2 = st.columns([2, 3, 2])
-    with col1:
-        # Working search functionality with Font Awesome icon
-
-        # st.markdown(
-        #     """
-        #     <div class='search-container'>
-        #         <span class='search-icon'><i class="fas fa-search"></i></span>
-        #     </div>
-        #     """,
-        #     unsafe_allow_html=True,
-        # )
-
-        search_term = st.text_input(
-            "Search",
-            placeholder="Search for...",
-            label_visibility="collapsed",
-            key="search_input",
-        )
-    with col2:
-        st.markdown(
-            """
-            <div class='top-buttons'>
-                <button class='add-btn'><i class="fas fa-plus"></i> Add Snivel</button>
-                <button class='filter-btn'><i class="fas fa-filter"></i> Filters <i class= "fas fa-chevron-down"></i</button>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-
-    # ---------- Load Data from JSON File ----------
-    @st.cache_data
-    def load_data():
-        """Load data from JSON file with caching for better performance"""
-        try:
-            with open("data.json", "r") as f:
-                data = json.load(f)
-            return pd.DataFrame(data)
-        except FileNotFoundError:
-            st.error("Data file 'data.json' not found!")
-            return pd.DataFrame()
-        except json.JSONDecodeError:
-            st.error("Invalid JSON format in 'data.json'!")
-            return pd.DataFrame()
-
-
-    df = load_data()
-
-    # Check if data was loaded successfully
-    if df.empty:
-        st.error("No data available. Please check the data.json file.")
-        st.stop()
-
-    # ---------- Search Filtering ----------
-    if search_term:
-        # Filter data based on search term
-        mask = (
-            df["Last Name"].str.contains(search_term, case=False, na=False)
-            | df["First Name"].str.contains(search_term, case=False, na=False)
-            | df["Start"].str.contains(search_term, case=False, na=False)
-            | df["End"].str.contains(search_term, case=False, na=False)
-            | df["Recurrence"].str.contains(search_term, case=False, na=False)
-            | df["Code"].str.contains(search_term, case=False, na=False)
-            | df["Description"].str.contains(search_term, case=False, na=False)
-            | df["Remarks"].str.contains(search_term, case=False, na=False)
-        )
-        filtered_df = df[mask]
-    else:
-        filtered_df = df
-
-    # ---------- Table ----------
     st.markdown(
         """
-    <div class='table-container'>
-        <table class='data-table'>
-            <thead>
-                <tr>
-                    <th>Last Name</th>
-                    <th class='sortable'>First Name </th>
-                    <th class='sortable'>Start </th>
-                    <th>End</th>
-                    <th>Recurrence</th>
-                    <th>Code</th>
-                    <th>Description</th>
-                    <th>Remarks</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-    """,
-        unsafe_allow_html=True,
-    )
-
-    # Add table rows with action buttons
-    for _, row in filtered_df.iterrows():
-        st.markdown(
-            f"""
-            <tr>
-                <td>{row['Last Name']}</td>
-                <td>{row['First Name']}</td>
-                <td>{row['Start']}</td>
-                <td>{row['End']}</td>
-                <td>{row['Recurrence']}</td>
-                <td>{row['Code']}</td>
-                <td>{row['Description']}</td>
-                <td>{row['Remarks']}</td>
-                <td>
-                    <button class='edit-btn'><i class="fas fa-edit"></i> Edit</button>
-                    <button class='delete-btn'><i class="fas fa-trash"></i> Delete</button>
-                </td>
-            </tr>
+        <div class='search-container'>
+            <span class='search-icon'><i class="fas fa-search"></i></span>
+             <input type='text' class='search-input' placeholder='Search for...' id='searchInput'>
+    </div>
+        
         """,
-            unsafe_allow_html=True,
-        )
-
+        unsafe_allow_html=True,
+    )
+    search_term = ''
+    # search_term = st.text_input(
+    #     "Search",
+    #     placeholder="Search for...",
+    #     label_visibility="collapsed",
+    #     key="search_input",
+    # )
+with col2:
     st.markdown(
         """
-            </tbody>
-        </table>
-    </div>
-    """,
-        unsafe_allow_html=True,
-    )
-
-    # ---------- Pagination ----------
-    # Calculate pagination info based on filtered results
-    total_results = len(filtered_df)
-    showing_text = (
-        f"Showing 1-{min(10, total_results)} of {total_results}"
-        if total_results > 0
-        else "Showing 0-0 of 0"
-    )
-
-    st.markdown(
-        f"""
-    <div class='pagination'>
-        <span>{showing_text}</span>
-        <div class='page-numbers'>
-            <button class='page-nav'>&lt;</button>
-            <span class='page active'>1</span>
-            <span class='page'>2</span>
-            <span class='page'>3</span>
-            <span class='page'>4</span>
-            <span class='page'>5</span>
-            <span class='page'>6</span>
-            <span class='page'>7</span>
-            <span class='page'>8</span>
-            <span class='page'>9</span>
-            <span class='page'>10</span>
-            <button class='page-nav'>&gt;</button>
+        <div class='top-buttons'>
+            <button class='add-btn'><i class="fas fa-plus"></i> Add Snivel</button>
+            <button class='filter-btn'><i class="fas fa-filter"></i> Filters <i class= "fas fa-chevron-down"></i</button>
         </div>
-    </div>
-    """,
+        """,
         unsafe_allow_html=True,
     )
 
-    # Close the outer data-presentation container
-    st.markdown(
-        """ 
-        </div> 
-    """,    unsafe_allow_html=True,
+
+# ---------- Load Data from JSON File ----------
+@st.cache_data
+def load_data():
+    """Load data from JSON file with caching for better performance"""
+    try:
+        with open("data.json", "r") as f:
+            data = json.load(f)
+        return pd.DataFrame(data)
+    except FileNotFoundError:
+        st.error("Data file 'data.json' not found!")
+        return pd.DataFrame()
+    except json.JSONDecodeError:
+        st.error("Invalid JSON format in 'data.json'!")
+        return pd.DataFrame()
+
+
+df = load_data()
+
+# Check if data was loaded successfully
+if df.empty:
+    st.error("No data available. Please check the data.json file.")
+    st.stop()
+
+# ---------- Search Filtering ----------
+if search_term:
+    # Filter data based on search term
+    mask = (
+        df["Last Name"].str.contains(search_term, case=False, na=False)
+        | df["First Name"].str.contains(search_term, case=False, na=False)
+        | df["Start"].str.contains(search_term, case=False, na=False)
+        | df["End"].str.contains(search_term, case=False, na=False)
+        | df["Recurrence"].str.contains(search_term, case=False, na=False)
+        | df["Code"].str.contains(search_term, case=False, na=False)
+        | df["Description"].str.contains(search_term, case=False, na=False)
+        | df["Remarks"].str.contains(search_term, case=False, na=False)
     )
+    filtered_df = df[mask]
+else:
+    filtered_df = df
 
-
-
+# ---------- Table ----------
 # Build the COMPLETE table HTML in ONE string
 html_table = """
 <div class='table-container'>
-    <table class='data-table'>
-        <thead>
-            <tr>
-                <th>Last Name</th>
-                <th class='sortable'>First Name</th>
-                <th class='sortable'>Start</th>
-                <th>End</th>
-                <th>Recurrence</th>
-                <th>Code</th>
-                <th>Description</th>
-                <th>Remarks</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<table class='data-table'>
+    <thead>
+        <tr>
+            <th>Last Name</th>
+            <th class='sortable'>First Name</th>
+            <th class='sortable'>Start</th>
+            <th>End</th>
+            <th>Recurrence</th>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Remarks</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
 """
 
 # Add ALL rows in the same string
 for _, row in filtered_df.iterrows():
     html_table += f"""
-            <tr>
-                <td>{row['Last Name']}</td>
-                <td>{row['First Name']}</td>
-                <td>{row['Start']}</td>
-                <td>{row['End']}</td>
-                <td>{row['Recurrence']}</td>
-                <td>{row['Code']}</td>
-                <td>{row['Description']}</td>
-                <td>{row['Remarks']}</td>
-                <td>
-                    <button class='edit-btn'><i class="fas fa-edit"></i> Edit</button>
-                    <button class='delete-btn'><i class="fas fa-trash"></i> Delete</button>
-                </td>
-            </tr>
-"""
+        <tr>
+            <td style='background-color:#1e2937'>{row['Last Name']}</td>
+            <td>{row['First Name']}</td>
+            <td style='background-color:#1e2937'>{row['Start']}</td>
+            <td>{row['End']}</td>
+            <td style='background-color:#1e2937'>{row['Recurrence']}</td>
+            <td>{row['Code']}</td>
+            <td style='background-color:#1e2937'>{row['Description']}</td>
+            <td>{row['Remarks']}</td>
+            <td style='background-color:#1e2937; ' >
+            <div style='display:flex; gap:8px ' >
+                <button class='edit-btn'>Edit<i class="fas fa-edit"></i> </button>
+                <button class='delete-btn'><i class="fas fa-trash"></i> Delete</button>
+                </div>
+            </td>
+        </tr>
+""".strip()
 
 # Close the table
 html_table += """
-        </tbody>
-    </table>
+    </tbody>
+</table>
 </div>
 """
 
+
 # Render ONCE
 st.markdown(html_table, unsafe_allow_html=True)
+# ---------- Pagination ----------
+# Calculate pagination info based on filtered results
+total_results = len(filtered_df)
+showing_text = (
+    f"Showing 1-{min(10, total_results)} of {total_results}"
+    if total_results > 0
+    else "Showing 0-0 of 0"
+)
+
+st.markdown(
+    f"""
+<div class='pagination'>
+    <span>{showing_text}</span>
+    <div class='page-numbers'>
+        <button class='page-nav'>&lt;</button>
+        <span class='page active'>1</span>
+        <span class='page'>2</span>
+        <span class='page'>3</span>
+        <span class='page'>4</span>
+        <span class='page'>5</span>
+        <span class='page'>6</span>
+        <span class='page'>7</span>
+        <span class='page'>8</span>
+        <span class='page'>9</span>
+        <span class='page'>10</span>
+        <button class='page-nav'>&gt;</button>
+    </div>
+</div>
+""",
+    unsafe_allow_html=True,
+)
+
+# Close the outer data-presentation container
+st.markdown(
+    """ 
+    </div> 
+""",
+    unsafe_allow_html=True,
+)
