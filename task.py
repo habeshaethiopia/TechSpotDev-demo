@@ -166,17 +166,6 @@ st.markdown(
 col1, col3, col2 = st.columns([2, 3, 2])
 with col1:
     # Working search functionality with Font Awesome icon
-
-    # st.markdown(
-    #     """
-    #     <div class='search-container'>
-    #         <span class='search-icon'><i class="fas fa-search"></i></span>
-    #          <input type='text' class='search-input' placeholder='Search for...' id='searchInput'>
-    # </div>
-
-    #     """,
-    #     unsafe_allow_html=True,
-    # )
     search_term = st.text_input(
         "Search",
         placeholder="Search for...",
@@ -359,5 +348,4 @@ next_page = min(total_pages, current_page + 1)
 pagination_html += f"<a class='page-nav' href='{page_link(next_page)}'>&gt;</a>"
 
 pagination_html += "</div></div></div>"
-# st.markdown(html_table, unsafe_allow_html=True)
 st.markdown(html_table+pagination_html, unsafe_allow_html=True)

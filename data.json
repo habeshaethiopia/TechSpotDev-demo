@@ -1,0 +1,102 @@
+[
+    {
+        "Last Name": "Hayes",
+        "First Name": "Caroline",
+        "Start": "01-29-2025",
+        "End": "12-31-2025",
+        "Recurrence": "Every Month",
+        "Code": "Other",
+        "Description": "Other",
+        "Remarks": "CSD Work Days"
+    },
+    {
+        "Last Name": "Allen",
+        "First Name": "Gregory",
+        "Start": "08-04-2025",
+        "End": "02-25-2025",
+        "Recurrence": "Every Month",
+        "Code": "Other",
+        "Description": "Other",
+        "Remarks": "FEP"
+    },
+    {
+        "Last Name": "Simmons",
+        "First Name": "George",
+        "Start": "09-16-2025",
+        "End": "09-17-2025",
+        "Recurrence": "06:30",
+        "Code": "ASDO",
+        "Description": "Assistant Staff",
+        "Remarks": "Assistant Staff Duty Officer"
+    },
+    {
+        "Last Name": "Flores",
+        "First Name": "Adrian",
+        "Start": "09-16-2025",
+        "End": "09-17-2025",
+        "Recurrence": "06:30",
+        "Code": "SUP",
+        "Description": "Assistant Staff",
+        "Remarks": "FEP"
+    },
+    {
+        "Last Name": "Hayes",
+        "First Name": "Caroline",
+        "Start": "08-04-2025",
+        "End": "12-31-2025",
+        "Recurrence": "06:30",
+        "Code": "ASDO",
+        "Description": "Other",
+        "Remarks": "Assistant Staff Duty Officer"
+    },
+    {
+        "Last Name": "Simmons",
+        "First Name": "George",
+        "Start": "08-04-2025",
+        "End": "09-17-2025",
+        "Recurrence": "Every Month",
+        "Code": "Other",
+        "Description": "Assistant Staff",
+        "Remarks": "Assistant Staff Duty Officer"
+    },
+    {
+        "Last Name": "Allen",
+        "First Name": "Gregory",
+        "Start": "01-29-2025",
+        "End": "12-31-2025",
+        "Recurrence": "06:30",
+        "Code": "Other",
+        "Description": "Other",
+        "Remarks": "FEP"
+    },
+    {
+        "Last Name": "Hayes",
+        "First Name": "Caroline",
+        "Start": "09-16-2025",
+        "End": "09-17-2025",
+        "Recurrence": "IR-9/20/2025",
+        "Code": "SUP",
+        "Description": "Other",
+        "Remarks": "FEP"
+    },
+    {
+        "Last Name": "Hayes",
+        "First Name": "Caroline",
+        "Start": "08-04-2025",
+        "End": "12-31-2025",
+        "Recurrence": "06:30",
+        "Code": "ASDO",
+        "Description": "Assistant Staff",
+        "Remarks": "CSD Work Days"
+    },
+    {
+        "Last Name": "Flores",
+        "First Name": "Adrian",
+        "Start": "01-29-2025",
+        "End": "02-25-2025",
+        "Recurrence": "Every Month",
+        "Code": "Other",
+        "Description": "Other",
+        "Remarks": "FEP"
+    }
+]

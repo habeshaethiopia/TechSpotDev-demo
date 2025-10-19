@@ -24,7 +24,7 @@ body,
 
 /* Hide Streamlit default elements */
 .stApp > header {
-  display: none;
+  /* display: none; */
 }
 
 .stApp > div {
@@ -131,6 +131,7 @@ body,
   padding: 15px 20px;
   border-radius: 8px;
   margin-bottom: 20px;
+  border: 1px solid #19273b;
 }
 
 /* Search and Buttons */
@@ -138,6 +139,7 @@ body,
   position: relative;
   display: flex;
   align-items: center;
+  border: 1px solid #19273b;
 }
 
 .search-icon {
@@ -230,6 +232,7 @@ body,
   table-layout: fixed;
   border: none;
   border-bottom: 1px solid #30363d;
+  border: 1px solid #19273b;
 }
 .st-b7 {
   background-color: #1e2937;
@@ -352,9 +355,9 @@ body,
   gap: 0; /* No gap, table cells touch each other */
   align-items: center;
   border-collapse: collapse;
-  border: 1px solid #2a4365;
+  border: 1px solid #1a2636;
   border-radius: 9px;
-  background-color: #000719;
+  background-color: #0d1a2a;
 }
 .page-numbers a {
   text-decoration: none;
@@ -364,7 +367,7 @@ body,
   text-align: center;
   padding: 6px 12px;
   margin: 0;
-  border-right: 1px solid #2a4365;
+  border-right: 1px solid #1e2937;
   color: white;
 }
 
@@ -382,7 +385,7 @@ body,
 }
 
 .page:hover {
-  background-color: #30363d;
+  background-color: #1e2938;
 }
 
 .page.active {
@@ -397,12 +400,20 @@ body,
   border: none;
   font-size: 14px;
   margin: 0;
-  border-right: 1px solid #2a4365;
+  border-right: 1px solid #1e2937;
+}
+.page-nav:last-child {
+  border-right: none;
 }
 .st-emotion-cache-nok2kl a {
   color: #fff;
 }
 
 .page-nav:hover {
-  background-color: #30363d;
+  background-color: #1e2938;
+  border-radius: 9px 0px 0px 9px;
+}
+
+.page-nav:last-child:hover {
+  border-radius: 0px 9px 9px 0px;
 }
