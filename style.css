@@ -24,7 +24,7 @@ body,
 
 /* Hide Streamlit default elements */
 .stApp > header {
-  /* display: none; */
+  display: none;
 }
 
 .stApp > div {
