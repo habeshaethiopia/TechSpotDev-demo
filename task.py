@@ -334,7 +334,7 @@ pagination_html = """
 
 # Prev button
 prev_page = max(1, current_page - 1)
-pagination_html += f"<a class='page-nav' href='{page_link(prev_page)}'>&lt;</a>"
+pagination_html += f"<a id='prev-page' class='page-nav' href='{page_link(prev_page)}'>&lt;</a>"
 
 for p in page_items:
     if p == "...":
@@ -345,7 +345,7 @@ for p in page_items:
 
 # Next button
 next_page = min(total_pages, current_page + 1)
-pagination_html += f"<a class='page-nav' href='{page_link(next_page)}'>&gt;</a>"
+pagination_html += f"<a id='next-page' class='page-nav' href='{page_link(next_page)}'>&gt;</a>"
 
 pagination_html += "</div></div></div>"
 st.markdown(html_table+pagination_html, unsafe_allow_html=True)

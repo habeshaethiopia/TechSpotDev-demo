@@ -128,7 +128,7 @@ body,
 }
 .page-title-container {
   background-color: #0d1a2a;
-  padding: 15px 20px;
+  padding: 10px 15 px;
   border-radius: 8px;
   margin-bottom: 20px;
   border: 1px solid #19273b;
@@ -393,7 +393,8 @@ body,
   color: white;
 }
 
-.page-nav {
+.page-nav #prev-page,
+.page-nav #next-page {
   padding: 6px 10px;
   cursor: pointer;
   color: #fff;
