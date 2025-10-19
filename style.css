@@ -132,12 +132,7 @@ body,
   border-radius: 8px;
   margin-bottom: 20px;
 }
-.data-presentation-container {
-  background-color: #0d1a2a;
-  padding: 15px 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
+
 /* Search and Buttons */
 .search-container {
   position: relative;
@@ -199,7 +194,7 @@ body,
 }
 
 .filter-btn {
-  background-color: #21262d;
+  background-color: #1e2937;
   color: #c9d1d9;
   border: 1px solid #30363d;
   padding: 8px 14px;
@@ -224,7 +219,7 @@ body,
   margin-top: 20px;
   background-color: #0d1a2a;
   border-radius: 12px;
-  padding: 0px;
+  padding: 10px 0px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -234,8 +229,7 @@ body,
   color: #c9d1d9;
   table-layout: fixed;
   border: none;
-
-
+  border-bottom: 1px solid #30363d;
 }
 .st-b7 {
   background-color: #1e2937;
@@ -301,7 +295,7 @@ body,
 } */
 
 .edit-btn {
-  background-color: #21262d;
+  background-color: #0d1a2a;
   color: #c9d1d9;
   border: 1px solid #30363d;
   padding: 4px 8px;
@@ -319,7 +313,7 @@ body,
 }
 
 .edit-btn:hover {
-  background-color: #30363d;
+  background-color: #09121d;
 }
 
 .delete-btn {
@@ -349,24 +343,42 @@ body,
   justify-content: space-between;
   align-items: center;
   color: #8b949e;
-  margin-top: 15px;
+  margin: 10px 15px;
   font-size: 14px;
 }
 
 .page-numbers {
   display: flex;
-  gap: 4px;
+  gap: 0; /* No gap, table cells touch each other */
   align-items: center;
+  border-collapse: collapse;
+  border: 1px solid #2a4365;
+  border-radius: 9px;
+  background-color: #000719;
+}
+.page-numbers a {
+  text-decoration: none;
+}
+.page-numbers .page {
+  flex: 1; /* evenly sized */
+  text-align: center;
+  padding: 6px 12px;
+  margin: 0;
+  border-right: 1px solid #2a4365;
+  color: white;
 }
 
+.page-numbers .page:last-child {
+  border-right: none; /* remove last border */
+}
 .page {
   padding: 6px 10px;
-  border-radius: 6px;
-  background-color: #21262d;
+
   cursor: pointer;
   color: #c9d1d9;
   border: none;
   font-size: 14px;
+  margin: 0 4px;
 }
 
 .page:hover {
@@ -374,19 +386,21 @@ body,
 }
 
 .page.active {
-  background-color: #1f6feb;
+  background-color: #1e2937;
   color: white;
 }
 
 .page-nav {
   padding: 6px 10px;
-  border-radius: 6px;
-  background-color: #21262d;
   cursor: pointer;
-  color: #c9d1d9;
+  color: #fff;
   border: none;
   font-size: 14px;
-  margin: 0 4px;
+  margin: 0;
+  border-right: 1px solid #2a4365;
+}
+.st-emotion-cache-nok2kl a {
+  color: #fff;
 }
 
 .page-nav:hover {
