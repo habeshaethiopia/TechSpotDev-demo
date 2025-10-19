@@ -128,7 +128,7 @@ body,
 }
 .page-title-container {
   background-color: #0d1a2a;
-  padding: 10px 15 px;
+  padding: 10px 15px;
   border-radius: 8px;
   margin-bottom: 20px;
   border: 1px solid #19273b;
@@ -393,8 +393,7 @@ body,
   color: white;
 }
 
-.page-nav #prev-page,
-.page-nav #next-page {
+.page-nav {
   padding: 6px 10px;
   cursor: pointer;
   color: #fff;
@@ -403,11 +402,12 @@ body,
   margin: 0;
   border-right: 1px solid #1e2937;
 }
+#prev-page,
+#next-page {
+  color: #fff;
+}
 .page-nav:last-child {
   border-right: none;
-}
-.st-emotion-cache-nok2kl a {
-  color: #fff;
 }
 
 .page-nav:hover {
