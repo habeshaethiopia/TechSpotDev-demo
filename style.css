@@ -1,0 +1,387 @@
+/* General Page */
+body,
+.stApp {
+  background-color: #000719;
+  color: #c9d1d9;
+  font-family: "Inter", sans-serif;
+}
+
+/* Sidebar specific styling */
+.stSidebar {
+  background-color: #0d1a2a !important;
+}
+.st-emotion-cache-kgpedg {
+  display: none;
+}
+.stSidebar .stMarkdown {
+  margin-bottom: 0;
+}
+
+/* Ensure sidebar has proper spacing */
+.stSidebar > div {
+  padding: 1rem;
+}
+
+/* Hide Streamlit default elements */
+.stApp > header {
+  display: none;
+}
+
+.stApp > div {
+  padding-top: 0;
+}
+
+/* Main content area styling */
+.main .block-container {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: none;
+}
+
+/* Sidebar */
+.sidebar-close {
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 250;
+  font-size: 15px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-item:hover {
+  background-color: #1c2937;
+}
+
+.menu-item.active {
+  background-color: #1c2937;
+  color: #fff;
+}
+
+.menu-icon {
+  margin-right: 12px;
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.menu-icon i {
+  font-size: 16px;
+}
+
+.menu-text {
+  flex: 1;
+}
+.menu-badge {
+  background-color: #530a1a;
+  color: white;
+
+  border-radius: 50%;
+  width: 25px; /* Set a fixed width */
+  height: 25px; /* Set a fixed height to match width for a circle */
+  line-height: 25px; /* Vertically center the text */
+  text-align: center; /* Horizontally center the text */
+  font-size: 13px;
+  margin-right: -6px;
+  /* Removed padding as width/height/line-height now control sizing and alignment */
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.dropdown-arrow i {
+  font-size: 12px;
+}
+
+.dropdown-item {
+  padding: 0.4rem 1rem 0.4rem 3rem;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 250;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #1c2937;
+  border-radius: 4px;
+}
+
+/* Header */
+.page-title {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: bold;
+}
+.page-title-container {
+  background-color: #0d1a2a;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.data-presentation-container {
+  background-color: #0d1a2a;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+/* Search and Buttons */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #8b949e;
+  z-index: 1;
+}
+
+.search-icon i {
+  font-size: 14px;
+}
+
+.search-input {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  border-radius: 8px;
+  padding: 10px 10px 10px 40px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1f6feb;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.add-btn {
+  background-color: #0962ff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.add-btn i {
+  font-size: 12px;
+}
+
+.add-btn:hover {
+  background-color: #084ec7;
+}
+
+.filter-btn {
+  background-color: #21262d;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.filter-btn i {
+  font-size: 12px;
+}
+
+.filter-btn:hover {
+  background-color: #30363d;
+}
+
+/* Table */
+.table-container {
+  margin-top: 20px;
+  background-color: #161b22;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #c9d1d9;
+  table-layout: fixed;
+}
+
+.data-table th {
+  background-color: #21262d;
+  color: #fff;
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #30363d;
+  vertical-align: top;
+}
+
+.data-table th:nth-child(1) {
+  width: 12%;
+} /* Last Name */
+.data-table th:nth-child(2) {
+  width: 12%;
+} /* First Name */
+.data-table th:nth-child(3) {
+  width: 10%;
+} /* Start */
+.data-table th:nth-child(4) {
+  width: 10%;
+} /* End */
+.data-table th:nth-child(5) {
+  width: 12%;
+} /* Recurrence */
+.data-table th:nth-child(6) {
+  width: 8%;
+} /* Code */
+.data-table th:nth-child(7) {
+  width: 12%;
+} /* Description */
+.data-table th:nth-child(8) {
+  width: 12%;
+} /* Remarks */
+.data-table th:nth-child(9) {
+  width: 12%;
+} /* Actions */
+
+.data-table th.sortable {
+  cursor: pointer;
+  position: relative;
+}
+
+.data-table th.sortable:hover {
+  background-color: #30363d;
+}
+
+.data-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #30363d;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.data-table tr:hover {
+  background-color: #21262d;
+}
+
+.edit-btn {
+  background-color: #21262d;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.edit-btn i {
+  font-size: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #30363d;
+}
+
+.delete-btn {
+  background-color: #da3633;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.delete-btn i {
+  font-size: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #b91c1c;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #8b949e;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.page {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: #21262d;
+  cursor: pointer;
+  color: #c9d1d9;
+  border: none;
+  font-size: 14px;
+}
+
+.page:hover {
+  background-color: #30363d;
+}
+
+.page.active {
+  background-color: #1f6feb;
+  color: white;
+}
+
+.page-nav {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: #21262d;
+  cursor: pointer;
+  color: #c9d1d9;
+  border: none;
+  font-size: 14px;
+  margin: 0 4px;
+}
+
+.page-nav:hover {
+  background-color: #30363d;
+}
